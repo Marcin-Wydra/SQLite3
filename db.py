@@ -2,7 +2,7 @@ import sqlite3
 
 class Database:
     def __init__(self, path):
-        self.con - sqlite3.connect(path)
+        self.con = sqlite3.connect(path)
 
 def connect_to_db(path):
     conn = sqlite3.connect(path)
@@ -22,6 +22,10 @@ def preview_table(self, table_name):
     result = self.con.execute(query).fetchall()
     print(result)
 
+def delete_from_customers(self, id):
+    query = 'DELETE FROM customers WHERE id = ?'
+    self.con.execute(query, (id, ))
+
 def __enter__(self):
     return self
 
@@ -37,5 +41,7 @@ with Database('example2-data.db') as db:
     db.create_table()
     db.add_to_customers('John', 'Wick', '2000-09-02')
     db.add_to_customers('James', 'Bond', '2002-05-16')
+    db.preview_table('Customers')
+    db.delete_from_customers(1)
     db.preview_table('Customers')
 
