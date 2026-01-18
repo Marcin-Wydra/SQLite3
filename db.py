@@ -46,6 +46,7 @@ with Database('example2-data.db') as db:
     db.add_to_customers('John', 'Wick', '2000-09-02')
     db.add_to_customers('James', 'Bond', '2002-05-16')
     db.preview_table('Customers')
-    db.delete_from_customers(1)
+    db.delete_from_customers(2)
     db.preview_table('Customers')
+    db.update_customers(1, 'John', 'Black', '2000-09-02')
 
