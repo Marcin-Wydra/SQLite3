@@ -26,6 +26,10 @@ def delete_from_customers(self, id):
     query = 'DELETE FROM customers WHERE id = ?'
     self.con.execute(query, (id, ))
 
+def update_customers(self, id, name, surname, date_joined):
+    query = 'UPDATE customers SET name = ?, surname = ?, date_joined = ? WHERE id = ?'
+    self.con.execute(query, (name, surname, date_joined, id))
+
 def __enter__(self):
     return self
 
