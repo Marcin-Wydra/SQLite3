@@ -5,8 +5,8 @@ class Database:
         self.con = sqlite3.connect(path)
 
     def connect_to_db(path):
-        conn = sqlite3.connect(path)
-        return conn
+        con = sqlite3.connect(path)
+        return con
 
     def create_table(self):
         query = "CREATE TABLE IF NOT EXISTS Customers(id INTEGER PRIMARY KEY, \
