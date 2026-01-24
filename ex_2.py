@@ -4,10 +4,6 @@ class Notebook:
     def __init__(self, path):
         self.con = sqlite3.connect(path)
 
-    def connect_to_db(path):
-        con = sqlite3.connect(path)
-        return con
-
     def create_table(self):
         query = ("CREATE TABLE IF NOT EXISTS Note(id INTEGER PRIMARY KEY, \
                  title TEXT UNIQUE NOT NULL, note_content TEXT NOT NULL, \
@@ -24,7 +20,7 @@ class Notebook:
         self.con.execute(query, (title,))
 
     def print_notes(self):
-        query = "SELECT * FROM NOTE "
+        query = "SELECT * FROM NOTE"
         print(self.con.execute(query).fetchall())
 
     def __enter__(self):
